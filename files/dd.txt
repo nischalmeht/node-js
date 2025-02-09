@@ -1,4 +1,0 @@
-{
-  "title": "dd",
-  "details": "xs"
-}

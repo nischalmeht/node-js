@@ -1,4 +1,0 @@
-{
-  "title": "ac",
-  "details": "xxxv"
-}
