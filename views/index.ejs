@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900">
+        <div class="form p-10">
+            <form action="/create" method="post">
+                <input name="title"class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800" type="text" placeholder="Title goes here...">
+                <textarea name="details"  class="block mt-2 outline-none text-white w-full rounded-md px-5 py-2 bg-zinc-800 resize-none" placeholder="Write your task details here..."></textarea>
+                <input class="mt-2 bg-blue-600 px-5 py-2" type="submit" value="Create Task">
+            </form>
+        </div>
+        <!-- <% {fileData} %> -->
+        <% if (files.length > 0) { %>
+            <div class="tasks flex flex-wrap gap-3 p-10">
+                <% files.forEach(element => { %>
+                    <div class="task w-72 px-3 py-2 bg-zinc-800 rounded-md hidden">
+                        <h1 class="text-white text-3xl tracking-tighter"><%= element.title %></h1>
+                        <a href="<%= element.link %>" class="text-blue-600">Read here</a>
+                    </div>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <h3 class="text-zinc-600">No task here.</h3>
+        <% } %>
+        
+      
+               </div>
+    <script src="/javascripts/scripts.js"></script>
+</body>
+</html>
