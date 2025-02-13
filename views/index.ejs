@@ -13,30 +13,18 @@
     <div class="main w-full min-h-screen bg-zinc-900">
         <div class="form p-10">
             <form action="/create" method="post">
-                <input name="title" class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
+                <input name="name" class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
                     type="text" placeholder="Title goes here...">
-                <textarea name="details"
-                    class="block mt-2 outline-none text-white w-full rounded-md px-5 py-2 bg-zinc-800 resize-none"
-                    placeholder="Write your task details here..."></textarea>
-                <input class="mt-2 bg-blue-600 px-5 py-2" type="submit" value="Create Task">
+                    <input name="email" class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
+                    type="email" placeholder="Email">
+                    <input name="username" class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
+                    type="text" placeholder="username">
+                    <button>Submit</button>
+                    
+                
             </form>
         </div>
-        <% if (files.length> 0) { %>
-            <div class="tasks flex flex-wrap gap-3 p-10">
-               
-                <% files.forEach(function(val) { %>
-                    <div class="task min-w-72 px-3 py-4 rounded-md bg-zinc-800">
-                        <h1 class="text-white text-3xl tracking-tighter">
-                            <%= val %>
-                        </h1>
-                        <a class="text-blue-500 inline-block mt-3" href="/file/<%= val%>">Read More.</a>
-                    </div>
-                    <% } ) %>
-                        }
-            </div>
-            <% } else { %>
-                <h3 class="text-zinc-600">No task here.</h3>
-                <% } %>
+       
 
 
     </div>

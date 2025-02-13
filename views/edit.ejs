@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+</head>
+
+<body>
+    <div class="main w-full min-h-screen bg-zinc-900 p-10">
+        <a href="/" class="text-2xl text-blue-500">go back to home</a>
+
+         <form action="/edit" method="post">
+                <input name="prev" class="block px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
+                    type="text" placeholder="Title goes here..." value=<%= filename%> >
+                    <input name="new" class="block mt-2 px-5 outline-none text-white py-2 w-full rounded-md bg-zinc-800"
+                    type="text" placeholder="Title goes here..."  >
+                    <!-- <input type=submit" value="submit"> -->
+                     <button class="text-2xl text-white mt-2 bg-blue-600 w-40">Submit</button>
+            </form>
+
+
+    </div>
+    <script src="/javascripts/scripts.js"></script>
+</body>
+
+</html>

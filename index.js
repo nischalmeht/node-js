@@ -1,47 +1,34 @@
-// var http = require('http');
-
-// //create a server object:
-// http.createServer(function (req, res) {
-//   res.write('Hello World!'); //write a response to the client
-//   res.end(); //end the response
-// }).listen(3000)
-
 const express = require('express')
+
 const app = express()
 const port = 3000
 const path=require('path');
 const fs=require('fs');
-
+const userModel = require('./userModel');
+const status=require("express-status-monitor");
+const cluster = require('node:cluster');
+const Os = require("os")
+const { pid } = require('process');
+app.use(status())
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'public')));
 app.set('view engine','ejs')
-app.use(function(req,res,next){
-  console.log("middleware")
-  next()
-})
-app.get('/', (req, res) => {
-  fs.readdir('./files',function(err,files){
-    console.log(files,'files')
-    res.render('index',{files:files})
-  })
-})
-app.get('/file/:filename', (req, res) => {
-  fs.readFile(`./files/${req.params.filename}`,'utf-8',function(err,files){
-    console.log(files)
-    res.render("show",{filename:req.params.filename,fileData:files})
+
+
+const numCPUs=  Os.cpus().length;
+if (cluster.isPrimary) {
+  for (let i = 0; i < numCPUs; i++) {
+    cluster.fork();
+  }
+}else{
+  app.get('/',(req,res)=>{
+    return res.json({message:`hiii ${pid}`})
+    // const stream = fs.createReadStream("./sample.txt", "utf-8");
+    // stream.on("data", (chunk) => res.write(chunk));
+    // stream.on("end", () => res.end());
+  
   })
   
-})
-
-app.post('/create', (req, res) => {
- fs.writeFile(`./files/${req.body.title.split(' ').join('')}.txt`,req.body.details,function(err){
-   res.redirect('/')
- })
-})
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+app.listen(port)
+}
