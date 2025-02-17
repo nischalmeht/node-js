@@ -18,19 +18,37 @@ const express4_1 = require("@apollo/server/express4");
 function init() {
     return __awaiter(this, void 0, void 0, function* () {
         const app = (0, express_1.default)();
-        const server = new server_1.ApolloServer({
-            typeDefs: '',
-            resolvers: {},
-        });
+        // ✅ Ensure JSON middleware is applied before Apollo middleware
+        app.use(express_1.default.json());
+        // ✅ Define GraphQL schema properly
+        const typeDefs = `
+    type Query {
+      hello: String
+      say(name: String!): String
+    }
+  `;
+        // ✅ Correct resolver structure
+        const resolvers = {
+            Query: {
+                hello: () => `Hello sir`,
+                say: (_, { name }) => `Hey ${name}, how are you?`,
+            },
+        };
+        const server = new server_1.ApolloServer({ typeDefs, resolvers });
+        yield server.start();
+        // ✅ Health check route
         app.get("/", (req, res) => {
             res.json({ message: "Server is up and running" });
         });
-        yield server.start();
-        app.use('/graphql', (0, express4_1.expressMiddleware)(server));
+        // ✅ Use Apollo middleware after JSON middleware
+        app.use("/graphql", (0, express4_1.expressMiddleware)(server));
         const PORT = 3000;
         app.listen(PORT, () => {
-            console.log(`Server is running on http://localhost:${PORT}`);
+            console.log(`🚀 Server is running on http://localhost:${PORT}`);
         });
     });
 }
-init();
+// ✅ Execute init function
+init().catch((error) => {
+    console.error("Error starting the server:", error);
+});
