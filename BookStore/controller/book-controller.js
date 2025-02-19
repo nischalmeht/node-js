@@ -51,7 +51,7 @@ const getSingleBookById = async (req, res) => {
   
   const addNewBook = async (req, res) => {
     try {
-      const newBookFormData = req.body;
+      const newBookFormData = req.body;      
       const newlyCreatedBook = await Book.create(newBookFormData);
       if (newBookFormData) {
         res.status(201).json({
@@ -61,7 +61,7 @@ const getSingleBookById = async (req, res) => {
         });
       }
     } catch (e) {
-      console.log(e);
+      console.log(e,'65');
       res.status(500).json({
         success: false,
         message: "Something went wrong! Please try again",
