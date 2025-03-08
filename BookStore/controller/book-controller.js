@@ -1,28 +1,30 @@
+const book = require("../Models/book");
 const Book = require("../Models/book")
 
 const getAllBooks=async(req,res)=>{
-    try{
-        const allBooks = await Book.find({});
-    if (allBooks?.length > 0) {
-      res.status(200).json({
-        success: true,
-        message: "List of books fetched successfully",
-        data: allBooks,
-      });
-    } else {
-      res.status(404).json({
-        success: false,
-        message: "Bo books found in collection",
-      });
+  
+
+    try {
+      const page = parseInt(req.body.page) || 1;
+    const limit = parseInt(req.body.limit) || 2;
+    const skip = (page - 1) * limit;
+    
+    
+        const allBooks = await book.find().skip(skip).limit(limit);
+        const total = await book.countDocuments();
+        console.log(total)
+        res.json({
+            total,
+            page,
+            pages: Math.ceil(total / limit),
+            data: allBooks
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
-  } catch (e) {
-    console.log(e);
-    res.status(500).json({
-      success: false,
-      message: "Something went wrong! Please try again",
-    });
-  }
+
 }
+
 const getSingleBookById = async (req, res) => {
     try {
       const getCurrentBookID = req.params.id;

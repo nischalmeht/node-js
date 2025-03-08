@@ -1,6 +1,8 @@
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { cloudinary } = require("../config/Configuration");
+const image = require("../Models/image");
 
 //register controller
 const registerUser = async (req, res) => {
@@ -106,6 +108,79 @@ const loginUser = async (req, res) => {
   }
 };
 
+const changePassword = async (req, res) => {
+  try {
+    const userId = req.body.userInfo;
+    const { oldPassword, newPassword } = req.body;
+    const user = await User.findByID(userId);
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        message: "User not found",
+      });
+    }
+    const isPasswordMatch = await bcrypt.compare(oldPassword, user.password);
+
+    if (!isPasswordMatch) {
+      return res.status(400).json({
+        success: false,
+        message: "Old password is not correct! Please try again.",
+      });
+    }
+    const salt = await bcrypt.genSalt(10);
+    const newHashedPassword = await bcrypt.hash(newPassword, salt);
+    user.password = newHashedPassword;
+    await user.save();
+
+    res.status(200).json({
+      success: true,
+      message: "Password changed successfully",
+    });
+  }
+  catch (err) {
+    res.status(500).json({
+      success: false,
+      message: "Some error occured! Please try again",
+    });
+  }
+}
+const deleteImageController = async (req, res) => {
+  try {
+    const getCurrentIdOfImageToBeDeleted = req.params.id;
+    const userId = req.userInfo.userId;
+    const images = await image.findById(getCurrentIdOfImageToBeDeleted);
+    if (!images) {
+      return res.status(404).json({
+        success: false,
+        message: "Image not found",
+      });
+    }
+    if (images.uploadedBy.toString() != userId) {
+      return res.status(403).json({
+        success: false,
+        message: `You are not authorized to delete this image because you haven't uploaded it`,
+      });
+    }
+    await cloudinary.uploader.destroy(images.uploadedBy);
+    //delete this image from mongodb database
+    // await images.findByIdAndUpdate(getCurrentIdOfImageToBeDeleted);
+    await image.findByIdAndUpdate(getCurrentIdOfImageToBeDeleted,);
 
 
-module.exports = { registerUser, loginUser,  };
+    res.status(200).json({
+      success: true,
+      message: "Image deleted successfully",
+    });
+  }
+  catch (e) {
+    console.log(e);
+    res.status(500).json({
+      success: false,
+      message: "Something went wrong! Please try again",
+    });
+  }
+}
+
+
+
+module.exports = { registerUser, loginUser, changePassword,deleteImageController };

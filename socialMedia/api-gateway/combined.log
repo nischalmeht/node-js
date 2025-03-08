@@ -1,0 +1,56 @@
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:04:17.056Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:04:23.343Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:05:15.499Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:05:19.524Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:05:21.986Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:05:50.335Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:06:03.979Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:06:13.617Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:06:14.969Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:24:44.497Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:25:28.516Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:25:35.816Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:26:30.690Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:26:32.319Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:27:08.394Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:08.397Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:27:11.587Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:11.592Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:20.992Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:27:20.997Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:20.998Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:25.653Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:27:25.655Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:27:25.656Z"}
+{"level":"info","message":"Received POST request to /v1/auth/signup","service":"api-gateway","timestamp":"2025-03-08T17:45:06.993Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-03-08T17:45:07.008Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:01.698Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:48:01.735Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:01.739Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:13.990Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:48:13.994Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:13.995Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:28.836Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:48:28.839Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:28.840Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:58.893Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:48:58.897Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:48:58.898Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:49:01.071Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:49:01.078Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:49:01.081Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:49:56.138Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:49:56.142Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:49:56.142Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:50:01.964Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:50:01.967Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:50:01.968Z"}
+{"level":"info","message":"Received POST request to /v1/auth/signup","service":"api-gateway","timestamp":"2025-03-08T17:50:39.633Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-03-08T17:50:39.635Z"}
+{"level":"info","message":"Response received from Identity service: 400","service":"api-gateway","timestamp":"2025-03-08T17:50:39.979Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:50:48.768Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-08T17:50:48.771Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-08T17:50:48.772Z"}
+{"level":"info","message":"Received POST request to /v1/auth/signup","service":"api-gateway","timestamp":"2025-03-08T17:50:58.333Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-03-08T17:50:58.333Z"}
+{"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2025-03-08T17:50:58.649Z"}
