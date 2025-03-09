@@ -12,7 +12,7 @@ const generateTokens=async(user)=>{
     }
 );
 const refreshToken=crypto.randomBytes(40).toString("hex");
-console
+
 const expiresAt=new Date();
 expiresAt.setDate(expiresAt.getDate()+7);
 await RefreshToken.create({

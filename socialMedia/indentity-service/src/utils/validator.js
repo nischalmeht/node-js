@@ -27,7 +27,7 @@ const ValidatorSchema = Joi.object({
     }),
 });
 
-const validatelogin = (data) => {
+const validateloginSchema = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required(),
@@ -35,4 +35,4 @@ const validatelogin = (data) => {
 
   return schema.validate(data);
 };
-module.exports = {ValidatorSchema,validatelogin};
+module.exports = { ValidatorSchema, validateloginSchema };
