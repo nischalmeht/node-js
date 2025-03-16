@@ -445,3 +445,4 @@
 {"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2025-03-16T09:35:05.227Z"}
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-03-16T09:35:05.230Z"}
 {"level":"info","message":"User Register Hit","service":"identity-service","timestamp":"2025-03-16T09:35:05.246Z"}
+{"level":"info","message":"Example app listening on port 3001","service":"identity-service","timestamp":"2025-03-16T10:56:40.008Z"}

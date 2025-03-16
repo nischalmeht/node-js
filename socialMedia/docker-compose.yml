@@ -1,5 +1,4 @@
-version: '3.8'
-
+# Removed version attribute as it's now optional
 services:
   api-gateway:
     build: ./api-gateway
@@ -7,27 +6,34 @@ services:
       - "3000:3000"
     env_file: ./api-gateway/.env
     depends_on:
-      - redis
-      - rabbitmq
-    environment:
-      - REDIS_URL=redis://redis:6379
-      - RABBITMQ_URL=amqp://rabbitmq:
-  identity-service:
-    build: ./identity-service
-    env_file: ./identity-service/.env
-    depends_on:
-      - redis
-      - rabbitmq
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
     environment:
       - REDIS_URL=redis://redis:6379
       - RABBITMQ_URL=amqp://rabbitmq:5672
-    
+
+  indentity-service:  # Fixed typo
+    build: ./indentity-service
+    env_file: ./indentity-service/.env
+    depends_on:
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
+    environment:
+      - REDIS_URL=redis://redis:6379
+      - RABBITMQ_URL=amqp://rabbitmq:5672
+
   post-service:
     build: ./post-service
     env_file: ./post-service/.env
     depends_on:
-      - redis
-      - rabbitmq
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
     environment:
       - REDIS_URL=redis://redis:6379
       - RABBITMQ_URL=amqp://rabbitmq:5672
@@ -36,8 +42,10 @@ services:
     build: ./media-service
     env_file: ./media-service/.env
     depends_on:
-      - redis
-      - rabbitmq
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
     environment:
       - REDIS_URL=redis://redis:6379
       - RABBITMQ_URL=amqp://rabbitmq:5672
@@ -46,8 +54,10 @@ services:
     build: ./search-service
     env_file: ./search-service/.env
     depends_on:
-      - redis
-      - rabbitmq
+      redis:
+        condition: service_started
+      rabbitmq:
+        condition: service_healthy
     environment:
       - REDIS_URL=redis://redis:6379
       - RABBITMQ_URL=amqp://rabbitmq:5672
@@ -56,13 +66,14 @@ services:
     image: redis:alpine
     ports:
       - "6379:6379"
+
   rabbitmq:
     image: rabbitmq:3-management
     ports:
       - "5672:5672"
-  healthcheck:
-    test: ["CMD", "rabbitmq-diagnostics", "ping"]
-    interval: 30s
-    timeout: 10s
-    retries: 5
-   
+      - "15672:15672" # Enables RabbitMQ web UI on localhost:15672
+    healthcheck:
+      test: ["CMD", "rabbitmqctl", "status"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

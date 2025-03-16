@@ -1241,3 +1241,9 @@
 {"level":"info","message":"Received POST request to /v1/posts/get-all-post","service":"api-gateway","timestamp":"2025-03-16T09:35:55.945Z"}
 {"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-03-16T09:35:55.946Z"}
 {"level":"info","message":"Response received from Post service: 200","service":"api-gateway","timestamp":"2025-03-16T09:35:56.155Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-16T10:56:29.544Z"}
+{"level":"info","message":"Identity service is running on port undefined","service":"api-gateway","timestamp":"2025-03-16T10:56:29.549Z"}
+{"level":"info","message":"Post service is running on port http://localhost:3002","service":"api-gateway","timestamp":"2025-03-16T10:56:29.549Z"}
+{"level":"info","message":"Post service is running on port http://localhost:3002","service":"api-gateway","timestamp":"2025-03-16T10:56:29.550Z"}
+{"level":"info","message":"Search service is running on port http://localhost:3004","service":"api-gateway","timestamp":"2025-03-16T10:56:29.550Z"}
+{"level":"info","message":"API Gateway is running on port 3000","service":"api-gateway","timestamp":"2025-03-16T10:56:29.551Z"}
